@@ -16,20 +16,24 @@ public class Projectile {
         this.velocity = velocity;
     }
 
-    public double getX(){
+    public double getX() {
         return velocity * cos(angle) * time;
     }
 
-    public double getY(){
+    public double getY() {
         return velocity * sin(angle) * time - EARTH_GRAVITY * time * time;
     }
 
-    public void increaseTime(double delta){
+    public void increaseTime(double delta) {
         time += delta;
+    }
+
+    public double getTime() {
+        return time;
     }
 
     @Override
     public String toString() {
-        return "time " + time + ": (" + String.format("%.4f", getX()) + ", "+ String.format("%.4f", getY()) + ")";
+        return "time " + time + ": (" + String.format("%.4f", getX()) + ", " + String.format("%.4f", getY()) + ")";
     }
 }

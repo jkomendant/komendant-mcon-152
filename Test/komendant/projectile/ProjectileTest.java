@@ -31,4 +31,20 @@ public class ProjectileTest {
         // then
         assertEquals(83.5568, y, 0.0001);
     }
+
+
+    @Test
+    public void increaseTime() {
+        //given
+        Projectile projectile = new Projectile(53.26, 82);
+
+
+        //when
+        for (int i = 0; i <= 5; i++) {
+            double time = projectile.getTime();
+            //then
+            assertEquals(i, time);
+            projectile.increaseTime(1);
+        }
+    }
 }
