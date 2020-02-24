@@ -6,8 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CashierTest {
     @Test
-    public void pay()
-    {
+    public void pay() throws Cashier.NotEnoughChangeException {
         //given
         Cashier cashier = new Cashier();
         Cash customerCash = new Cash(0,0,0,0,3,
@@ -31,8 +30,7 @@ public class CashierTest {
     }
 
     @Test
-    public void pay2()
-    {
+    public void pay1260() throws Cashier.NotEnoughChangeException {
         //given
         Cashier cashier = new Cashier();
         Cash customerCash = new Cash(0,0,0,0,0,
@@ -54,5 +52,25 @@ public class CashierTest {
         assertEquals(expected.getAmount10Dollar(), change.getAmount10Dollar());
         assertEquals(expected.getAmount20Dollar(), change.getAmount20Dollar());
     }
+    @Test(expected = Cashier.NotEnoughChangeException.class)
+    public void payBroke() throws Cashier.NotEnoughChangeException {
+        //given
+        Cashier cashier = new Cashier(new Cash());
+
+        //when
+        cashier.pay(3.00, new Cash());
+    }
+
+    @Test(expected = Cashier.NotEnoughChangeException.class)
+    public void payNotEnoughChange() throws Cashier.NotEnoughChangeException {
+        //given
+        Cashier cashier = new Cashier(new Cash(0,0,0,0,
+                0,0,1,0));
+
+        //when
+        cashier.pay(3.00, new Cash(0,0,0,0,
+                0,1,0,0));
+    }
+
 
 }
