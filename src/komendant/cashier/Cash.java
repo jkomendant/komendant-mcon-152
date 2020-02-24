@@ -10,6 +10,10 @@ public class Cash {
     private int amount10Dollar;
     private int amount20Dollar;
 
+    public Cash(){
+
+    }
+
     public Cash(int amountPenny, int amountNickle, int amountDime, int amountQuarter,
                 int amount1Dollar, int amount5Dollar, int amount10Dollar, int amount20Dollar) {
         this.amountPenny = amountPenny;
@@ -21,6 +25,7 @@ public class Cash {
         this.amount10Dollar = amount10Dollar;
         this.amount20Dollar = amount20Dollar;
     }
+
 
     public int getAmountPenny() {
         return amountPenny;

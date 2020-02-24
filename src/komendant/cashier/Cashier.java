@@ -4,15 +4,25 @@ import java.text.DecimalFormat;
 
 public class Cashier {
     DecimalFormat df = new DecimalFormat("#0.00");
+    Cash cashierCash;
 
-    Cash cashierCash = new Cash(100, 100, 100, 100,
-            100, 100, 100, 100);
+    public Cashier() {
+        cashierCash = new Cash(100, 100, 100, 100,
+                100, 100, 100, 100);
+
+    }
+
+    public Cashier(Cash cash) {
+        cashierCash = cash;
+    }
 
 
-    public Cash pay(double price, Cash customerCash) {
+    public Cash pay(double price, Cash customerCash) throws NotEnoughChangeException {
         double totalCash = customerCash.calculateTotalCashAmount();
         double totalChange = Double.parseDouble(df.format((totalCash - price)));
-
+        if (cashierCash.calculateTotalCashAmount() == 0) {
+            throw new NotEnoughChangeException();
+        }
         while (totalCash != 0) {
             if (totalCash >= 20.00 && customerCash.getAmount20Dollar() != 0) {
                 cashierCash.Increase20Dollar(customerCash.getAmount20Dollar());
@@ -52,7 +62,6 @@ public class Cashier {
         Cash change = new Cash(0, 0, 0, 0, 0,
                 0, 0, 0);
 
-
         while (totalChange != 0) {
             if (totalChange >= 20.00 && cashierCash.getAmount20Dollar() != 0) {
                 cashierCash.decrease20Dollar(1);
@@ -87,16 +96,13 @@ public class Cashier {
                 change.IncreasePenny(1);
                 totalChange = Double.parseDouble(df.format((totalChange - 0.01)));
             } else {
-                cashierCash.IncreasePenny(100);
-                cashierCash.IncreaseNickle(100);
-                cashierCash.IncreaseDime(100);
-                cashierCash.IncreaseQuarter(100);
-                cashierCash.Increase1Dollar(50);
-                cashierCash.Increase5Dollar(50);
-                cashierCash.Increase10Dollar(20);
-                cashierCash.Increase20Dollar(15);
+                throw new NotEnoughChangeException();
             }
         }
         return change;
+    }
+
+    protected class NotEnoughChangeException extends Exception {
+        
     }
 }
