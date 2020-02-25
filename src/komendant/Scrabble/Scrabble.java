@@ -8,7 +8,7 @@ public class Scrabble {
     Hashtable<Integer, String> hashtable = new Hashtable<>();
 
     public void addWords() throws FileNotFoundException {
-        String Filename = "C:/Users/Chashie/Downloads/dictionary.txt";
+        String Filename = "dictionary.txt";
         File file = new File(Filename);
         Scanner scanner = new Scanner(file);
 
