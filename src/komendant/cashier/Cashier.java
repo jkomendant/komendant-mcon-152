@@ -103,6 +103,6 @@ public class Cashier {
     }
 
     protected class NotEnoughChangeException extends Exception {
-        
+
     }
 }
