@@ -59,35 +59,35 @@ public class Cash {
         return amount20Dollar;
     }
 
-    public void IncreasePenny(int coin) {
+    public void increasePenny(int coin) {
         amountPenny += coin;
     }
 
-    public void IncreaseNickle(int coin) {
+    public void increaseNickle(int coin) {
         amountNickle += coin;
     }
 
-    public void IncreaseDime(int coin) {
+    public void increaseDime(int coin) {
         amountDime += coin;
     }
 
-    public void IncreaseQuarter(int coin) {
+    public void increaseQuarter(int coin) {
         amountQuarter += coin;
     }
 
-    public void Increase1Dollar(int dollars) {
+    public void increase1Dollar(int dollars) {
         amount1Dollar += dollars;
     }
 
-    public void Increase5Dollar(int dollars) {
+    public void increase5Dollar(int dollars) {
         amount5Dollar += dollars;
     }
 
-    public void Increase10Dollar(int dollars) {
+    public void increase10Dollar(int dollars) {
         amount10Dollar += dollars;
     }
 
-    public void Increase20Dollar(int dollars) {
+    public void increase20Dollar(int dollars) {
         amount20Dollar += dollars;
     }
 
