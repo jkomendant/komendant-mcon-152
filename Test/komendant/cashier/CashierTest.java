@@ -72,5 +72,31 @@ public class CashierTest {
                 0,1,0,0));
     }
 
+    @Test
+    public void payNotEnoughChangeRegister() {
+        //given
+        Cash cash = new Cash();
+        cash.increase10Dollar(1);
+        Cashier cashier = new Cashier(cash);
+
+        //when
+        try {
+            cashier.pay(2.49, new Cash(0, 0, 0, 0,
+                    3, 0, 0, 0));
+        }
+        //then
+        catch(Exception NotEnoughChangeException)
+        {
+            assertEquals(0, cash.getAmountPenny());
+            assertEquals(0, cash.getAmountNickle());
+            assertEquals(0, cash.getAmountDime());
+            assertEquals(0, cash.getAmountQuarter());
+            assertEquals(0, cash.getAmount1Dollar());
+            assertEquals(0, cash.getAmount5Dollar());
+            assertEquals(1, cash.getAmount10Dollar());
+            assertEquals(0, cash.getAmount20Dollar());
+        }
+    }
+
 
 }
