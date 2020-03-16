@@ -136,4 +136,26 @@ public class Cash {
                 + (amount1Dollar * DOLLAR) + (amount5Dollar * FIVE_DOLLAR) + (amount10Dollar * TEN_DOLLAR)
                 + (amount20Dollar * TWENTY_DOLLAR);
     }
+
+    public void reset(){
+        amountPenny = 0;
+        amountNickle = 0;
+        amountDime = 0;
+        amountQuarter = 0;
+        amount1Dollar = 0;
+        amount5Dollar = 0;
+        amount10Dollar = 0;
+        amount20Dollar = 0;
+    }
+
+    public String getTotalMoneyPieces() {
+        return "P: " + amountPenny +
+                ", N: " + amountNickle +
+                ", D: " + amountDime +
+                ", Q: " + amountQuarter +
+                ", $1: " + amount1Dollar +
+                ", $5 " + amount5Dollar +
+                ", $10: " + amount10Dollar +
+                ", $20: " + amount20Dollar;
+    }
 }

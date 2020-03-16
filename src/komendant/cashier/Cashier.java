@@ -17,9 +17,14 @@ public class Cashier {
     }
 
 
-    public Cash pay(double price, Cash customerCash) throws NotEnoughChangeException {
+    public Cash pay(double price, Cash customerCash) throws NotEnoughChangeException, NotEnoughPaymentException {
         double totalCash = customerCash.calculateTotalCashAmount();
         double totalChange = Double.parseDouble(df.format((totalCash - price)));
+
+        if(price > totalCash){
+            throw new NotEnoughPaymentException();
+        }
+
         if (cashierCash.calculateTotalCashAmount() == 0) {
             throw new NotEnoughChangeException();
         }
@@ -118,6 +123,10 @@ public class Cashier {
     }
 
     public class NotEnoughChangeException extends Exception {
+
+    }
+
+    public class NotEnoughPaymentException extends  Exception{
 
     }
 }
