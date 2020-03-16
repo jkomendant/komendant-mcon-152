@@ -21,6 +21,7 @@ public class Projectile {
     }
 
     public double getY() {
+
         return velocity * sin(angle) * time - EARTH_GRAVITY * time * time;
     }
 
