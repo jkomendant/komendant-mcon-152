@@ -1,4 +1,4 @@
-package komendant.Scrabble;
+package komendant.scrabble;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class ScrabbleTest {
     public void isWordExists() throws FileNotFoundException {
         //given
         Scrabble scrabble = new Scrabble();
-        scrabble.addWords();
+
 
         //when
         String word = "ARM";
@@ -25,7 +25,7 @@ public class ScrabbleTest {
     public void isWordDoesNotExist() throws FileNotFoundException {
         //given
         Scrabble scrabble = new Scrabble();
-        scrabble.addWords();
+
 
         //when
         String word = "AJE";
@@ -38,7 +38,7 @@ public class ScrabbleTest {
     public void isWordCaseInsensitive() throws FileNotFoundException {
         //given
         Scrabble scrabble = new Scrabble();
-        scrabble.addWords();
+
 
         //when
         String word = "arm";
