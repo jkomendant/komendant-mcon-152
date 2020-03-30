@@ -4,51 +4,33 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CashierFrame extends JFrame {
-        private Cash payment = new Cash();
-        private Cash registerCash = new Cash();
+    private Cash payment = new Cash();
+    private Cash registerCash = new Cash();
 
-        private JPanel cashierPanel;
-        private JLabel totalPayment;
-        private JButton pennies;
-        private JButton nickels;
-        private JButton dimes;
-        private JButton quarters;
-        private JButton oneDollars;
-        private JButton fiveDollars;
-        private JButton tenDollars;
-        private JButton twentyDollars;
-        private JLabel priceLabel;
-        private JTextField price;
-        private JButton clear;
-        private JButton pay;
-        private JLabel registerLabel;
-        private JLabel register;
-        private JLabel changeLabel;
-        private JLabel change;
-        private JLabel error;
-        private JPanel payPanel;
-        private JPanel pricePanel;
-        private JPanel registerPanel;
-        private JPanel changePanel;
+    private JLabel totalPayment;
+    private JTextField price;
+    private JLabel register;
+    private JLabel change;
+    private JLabel error;
 
-    public CashierFrame(){
+    public CashierFrame() {
         setSize(600, 300);
         setTitle("Cashier");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        cashierPanel = new JPanel();
+        JPanel cashierPanel = new JPanel();
         cashierPanel.setLayout(new BoxLayout(cashierPanel, BoxLayout.PAGE_AXIS));
-        payPanel =  new JPanel();
+        JPanel payPanel = new JPanel();
         payPanel.setLayout(new FlowLayout());
         totalPayment = new JLabel("0.00");
-        pennies = new JButton("P");
-        nickels = new JButton("N");
-        dimes = new JButton("D");
-        quarters = new JButton("Q");
-        oneDollars = new JButton("$1");
-        fiveDollars = new JButton("$5");
-        tenDollars = new JButton("$10");
-        twentyDollars = new JButton("$20");
+        JButton pennies = new JButton("P");
+        JButton nickels = new JButton("N");
+        JButton dimes = new JButton("D");
+        JButton quarters = new JButton("Q");
+        JButton oneDollars = new JButton("$1");
+        JButton fiveDollars = new JButton("$5");
+        JButton tenDollars = new JButton("$10");
+        JButton twentyDollars = new JButton("$20");
         payPanel.add(totalPayment);
         payPanel.add(pennies);
         payPanel.add(nickels);
@@ -59,29 +41,29 @@ public class CashierFrame extends JFrame {
         payPanel.add(tenDollars);
         payPanel.add(twentyDollars);
 
-        pricePanel = new JPanel();
+        JPanel pricePanel = new JPanel();
         pricePanel.setLayout(new FlowLayout());
-        priceLabel = new JLabel("Price: ");
+        JLabel priceLabel = new JLabel("Price: ");
         price = new JTextField();
         price.setColumns(10);
-        clear = new JButton("Clear");
-        pay = new JButton("Pay");
+        JButton clear = new JButton("Clear");
+        JButton pay = new JButton("Pay");
         pricePanel.add(priceLabel);
         pricePanel.add(price);
         pricePanel.add(clear);
         pricePanel.add(pay);
 
-        registerPanel = new JPanel();
+        JPanel registerPanel = new JPanel();
         registerPanel.setLayout(new FlowLayout());
-        registerLabel = new JLabel("Register: ");
+        JLabel registerLabel = new JLabel("Register: ");
         fillRegister();
         register = new JLabel(registerCash.getTotalMoneyPieces());
         registerPanel.add(registerLabel);
         registerPanel.add(register);
 
-        changePanel = new JPanel();
+        JPanel changePanel = new JPanel();
         changePanel.setLayout(new FlowLayout());
-        changeLabel = new JLabel("Change: ");
+        JLabel changeLabel = new JLabel("Change: ");
         change = new JLabel();
         changePanel.add(changeLabel);
         changePanel.add(change);
