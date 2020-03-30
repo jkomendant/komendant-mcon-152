@@ -1,28 +1,26 @@
-package komendant.Scrabble;
+package komendant.scrabble;
 
 import java.io.*;
 import java.util.*;
 
 public class Scrabble {
 
-    Hashtable<Integer, String> hashtable = new Hashtable<>();
+    HashSet<String> hashSet = new HashSet<>();
 
-    public void addWords() throws FileNotFoundException {
+    public Scrabble() throws FileNotFoundException {
         String Filename = "dictionary.txt";
         File file = new File(Filename);
         Scanner scanner = new Scanner(file);
 
-        int count = 0;
         while (scanner.hasNext()) {
-            hashtable.put(count, scanner.next());
+            hashSet.add(scanner.next());
             scanner.nextLine();
-            count++;
         }
 
     }
 
     public boolean isWord(String word) {
         String containsWord = word.toUpperCase();
-        return hashtable.contains(containsWord);
+        return hashSet.contains(containsWord);
     }
 }
