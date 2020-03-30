@@ -9,12 +9,8 @@ public class ProjectileFrame  extends JFrame {
     private JTextArea projectileCoordinates;
     private JTextField velocity;
     private JTextField angle;
-    private JButton calculateButton;
-    private JLabel velocityLabel;
-    private JLabel angleLabel;
 
-    private JPanel leftPanel;
-    private ArrayList<Projectile> projectileList = new ArrayList();
+    private ArrayList<Projectile> projectileList = new ArrayList<>();
 
     public ProjectileFrame(){
         setSize(300,400);
@@ -26,14 +22,14 @@ public class ProjectileFrame  extends JFrame {
         projectileCoordinates = new JTextArea();
         velocity = new JTextField();
         angle = new JTextField();
-        calculateButton = new JButton("Calculate");
+        JButton calculateButton = new JButton("Calculate");
 
         calculateButton.addActionListener(actionEvent -> calculate());
 
-        velocityLabel = new JLabel("Velocity");
-        angleLabel = new JLabel("angle");
+        JLabel velocityLabel = new JLabel("Velocity");
+        JLabel angleLabel = new JLabel("angle");
 
-        leftPanel = new JPanel();
+        JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new GridLayout(3,2));
         leftPanel.add(velocityLabel);
         leftPanel.add(velocity);
@@ -55,6 +51,8 @@ public class ProjectileFrame  extends JFrame {
                 Double.parseDouble(velocity.getText()));
         for (int i = 0; i <= 30; i++) {
             projectileList.add(projectile);
+        }
+        for (int j = 0; j < projectileList.size(); j++) {
             projectileCoordinates.append(projectile.toString() + "\n");
             projectile.increaseTime(1);
         }
